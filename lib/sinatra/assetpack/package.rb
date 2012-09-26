@@ -107,6 +107,11 @@ module Sinatra
 
     private
       def link_tag(file, options={})
+        # allow for building of assets from an application context and CDN host
+        context = options.delete(:context)
+        host = options.delete(:host)
+        file = "#{context}#{file}" unless context.nil? || context.empty?
+        file = "#{host}#{file}" unless host.nil? || host.empty?
         if js?
           "<script src='#{e file}'#{kv options}></script>"
         elsif css?
