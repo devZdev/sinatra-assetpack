@@ -42,7 +42,8 @@ module Sinatra
         pack = settings.assets.packages["#{name}.#{type}"]
         return ""  unless pack
 
-        if settings.production?
+        # force production packageing for override, stage, or production
+        if ENV['ASSETPACK_FORCE_PRODUCTION'] || settings.stage? || settings.production?
           pack.to_production_html options
         else
           pack.to_development_html options
