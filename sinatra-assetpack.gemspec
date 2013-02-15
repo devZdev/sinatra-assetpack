@@ -1,7 +1,7 @@
 require './lib/sinatra/assetpack/version'
 
 Gem::Specification.new do |s|
-  s.name = "sinatra-assetpack"
+  s.name = "sundawg-sinatra-assetpack-fork"
   s.version = Sinatra::AssetPack.version
   s.summary = %{Asset packager for Sinatra.}
   s.description = %Q{Package your assets for Sinatra.}
